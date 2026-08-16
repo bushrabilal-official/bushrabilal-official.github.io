@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bushra Bilal — Full Stack Developer · Video Editor · Security Learner</title>
+<meta name="description" content="Portfolio of Bushra Bilal — full stack developer, video editor, and cybersecurity learner. Switch modes above to see each side of the work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="intro-active">
+
+<!-- INTRO OVERLAY SPLASH SCREEN -->
+<div id="introOverlay" class="intro-overlay" role="dialog" aria-label="Welcome animation">
+  <div class="intro-scene-wrapper">
+    <svg class="hero-scene-svg" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Glow & Gradients -->
+      <defs>
+        <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#1E293B" stop-opacity="0.8"/>
+          <stop offset="100%" stop-color="#030712" stop-opacity="1"/>
+        </radialGradient>
+        <linearGradient id="ropeGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#64748B"/>
+          <stop offset="100%" stop-color="#334155"/>
+        </linearGradient>
+        <linearGradient id="cloudGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1E293B" stop-opacity="0.95"/>
+          <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9"/>
+        </linearGradient>
+        <linearGradient id="characterOutfit" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#38BDF8"/>
+          <stop offset="100%" stop-color="#6366F1"/>
+        </linearGradient>
+        <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="8" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+
+      <!-- Background Glow -->
+      <rect width="800" height="600" fill="url(#bgGlow)" />
+
+      <!-- Background Drifting Stars / Ambient Glow -->
+      <g class="anim-drift">
+        <circle cx="150" cy="120" r="2" fill="#38BDF8" opacity="0.6"/>
+        <circle cx="650" cy="140" r="1.5" fill="#818CF8" opacity="0.7"/>
+        <circle cx="220" cy="250" r="2" fill="#F43F5E" opacity="0.5"/>
+        <circle cx="580" cy="220" r="2.5" fill="#38BDF8" opacity="0.8"/>
+        <circle cx="400" cy="100" r="3" fill="#6366F1" opacity="0.4" filter="url(#glowFilter)"/>
+      </g>
+
+      <!-- Main Scene Group (Camera Zoom) -->
+      <g class="anim-camera-zoom" transform-origin="400 300">
+        
+        <!-- Swing Support Branch -->
+        <path d="M 120 40 Q 400 70 680 40" stroke="#334155" stroke-width="8" stroke-linecap="round"/>
+        <path d="M 280 56 Q 340 75 400 85" stroke="#1E293B" stroke-width="4" fill="none"/>
+
+        <!-- Swing Assembly (Swaying Chair) -->
+        <g class="anim-chair-sway" transform-origin="400 65">
+          <!-- Ropes -->
+          <line x1="330" y1="62" x2="345" y2="340" stroke="url(#ropeGrad)" stroke-width="3" stroke-dasharray="6 2"/>
+          <line x1="470" y1="62" x2="455" y2="340" stroke="url(#ropeGrad)" stroke-width="3" stroke-dasharray="6 2"/>
+
+          <!-- Wooden Swing Seat -->
+          <rect x="330" y="340" width="140" height="12" rx="4" fill="#475569" stroke="#64748B" stroke-width="1.5"/>
+
+          <!-- Character Group -->
+          <g id="character">
+            <!-- Torso & Clothes -->
+            <path d="M 375 250 L 425 250 L 435 340 L 365 340 Z" fill="url(#characterOutfit)"/>
+
+            <!-- Legs -->
+            <rect x="375" y="340" width="16" height="75" rx="8" fill="#1E293B"/>
+            <rect x="409" y="340" width="16" height="75" rx="8" fill="#1E293B"/>
+            <!-- Shoes -->
+            <ellipse cx="383" cy="418" rx="12" ry="7" fill="#38BDF8"/>
+            <ellipse cx="417" cy="418" rx="12" ry="7" fill="#38BDF8"/>
+
+            <!-- Left Arm (Holding Rope) -->
+            <path d="M 370 255 Q 345 280 345 310" stroke="#F43F5E" stroke-width="10" stroke-linecap="round" fill="none"/>
+            <circle cx="345" cy="308" r="6" fill="#FCA5A5"/>
+
+            <!-- Head & Hair (Turns towards camera) -->
+            <g class="anim-head-turn" transform-origin="400 215">
+              <!-- Hair back -->
+              <circle cx="400" cy="210" r="38" fill="#0F172A"/>
+              <!-- Face -->
+              <circle cx="400" cy="215" r="28" fill="#FCA5A5"/>
+              <!-- Eyes -->
+              <circle cx="390" cy="212" r="3.5" fill="#0F172A"/>
+              <circle cx="410" cy="212" r="3.5" fill="#0F172A"/>
+              <!-- Eye shine -->
+              <circle cx="391.5" cy="210.5" r="1" fill="#FFFFFF"/>
+              <circle cx="411.5" cy="210.5" r="1" fill="#FFFFFF"/>
+              <!-- Cheeks -->
+              <ellipse cx="384" cy="222" rx="4" ry="2.5" fill="#F43F5E" opacity="0.6"/>
+              <ellipse cx="416" cy="222" rx="4" ry="2.5" fill="#F43F5E" opacity="0.6"/>
+              <!-- Smile -->
+              <path d="M 393 224 Q 400 232 407 224" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <!-- Bangs -->
+              <path d="M 372 200 Q 400 180 428 200 Q 400 195 372 200 Z" fill="#1E293B"/>
+            </g>
+
+            <!-- Right Waving Arm -->
+            <g class="anim-wave-arm" transform-origin="430 255">
+              <path d="M 430 255 Q 460 230 470 195" stroke="#F43F5E" stroke-width="10" stroke-linecap="round" fill="none"/>
+              <!-- Hand -->
+              <circle cx="470" cy="193" r="7" fill="#FCA5A5"/>
+              <!-- Sparkles on wave -->
+              <path d="M 485 180 L 490 185 M 485 190 L 492 190" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+            </g>
+
+            <!-- Speech Bubble ("Hii!") -->
+            <g class="anim-bubble-show" transform-origin="450 145">
+              <!-- Speech Bubble Body -->
+              <rect x="420" y="110" width="100" height="50" rx="20" fill="#FFFFFF" filter="url(#glowFilter)"/>
+              <polygon points="445,160 455,160 440,172" fill="#FFFFFF"/>
+              <!-- Text "Hii!" -->
+              <text x="470" y="142" text-anchor="middle" fill="#0F172A" font-family="var(--font-sans), sans-serif" font-weight="800" font-size="22">Hii! ✨</text>
+            </g>
+
+          </g>
+        </g>
+      </g>
+
+      <!-- Clouds Parting (Left & Right Overlay Clouds) -->
+      <g class="anim-clouds-left">
+        <path d="M -50 -50 L 420 -50 Q 380 150 450 300 Q 380 450 420 650 L -50 650 Z" fill="url(#cloudGrad)"/>
+        <circle cx="360" cy="120" r="110" fill="#1E293B" opacity="0.95"/>
+        <circle cx="410" cy="280" r="130" fill="#0F172A" opacity="0.98"/>
+        <circle cx="370" cy="460" r="120" fill="#1E293B" opacity="0.95"/>
+      </g>
+      <g class="anim-clouds-right">
+        <path d="M 850 -50 L 380 -50 Q 420 150 350 300 Q 420 450 380 650 L 850 650 Z" fill="url(#cloudGrad)"/>
+        <circle cx="440" cy="120" r="110" fill="#1E293B" opacity="0.95"/>
+        <circle cx="390" cy="280" r="130" fill="#0F172A" opacity="0.98"/>
+        <circle cx="430" cy="460" r="120" fill="#1E293B" opacity="0.95"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Skip Intro Button -->
+  <button id="skipIntroBtn" class="intro-skip-btn" aria-label="Skip intro animation">Skip intro →</button>
+</div>
+
+<!-- Premium Interactive Background & Cursor -->
+<div id="custom-cursor" aria-hidden="true"></div>
+<canvas id="canvas-ambient"></canvas>
+
+<div class="blueprint-frame" aria-hidden="true">
+  <span class="crop crop--tl"></span>
+  <span class="crop crop--tr"></span>
+  <span class="crop crop--bl"></span>
+  <span class="crop crop--br"></span>
+</div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="logo" aria-label="Bushra Bilal, home">
+      <span class="logo-mark">BB</span>
+      <span class="logo-text">Bushra<em>.dev</em></span>
+    </a>
+
+    <div class="mode-switch" id="modeSwitch" role="group" aria-label="Switch portfolio focus">
+      <button data-mode="dev" class="is-active" aria-pressed="true">DEV</button>
+      <button data-mode="editor" aria-pressed="false">EDIT</button>
+      <button data-mode="security" aria-pressed="false">SEC</button>
+    </div>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to light theme" aria-pressed="false">
+      <span class="theme-toggle__icon" aria-hidden="true">☀️</span>
+      <span class="theme-toggle__label">Theme</span>
+    </button>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+      <ul>
+        <li><a href="#about"><span class="nav-tag">01</span>About</a></li>
+        <li><a href="#journey"><span class="nav-tag">02</span>Journey</a></li>
+        <li><a href="#certifications"><span class="nav-tag">03</span>Certifications</a></li>
+        <li><a href="#learning"><span class="nav-tag">04</span>Learning</a></li>
+        <li><a href="#skills"><span class="nav-tag">05</span>Skills</a></li>
+        <li><a href="#projects"><span class="nav-tag">06</span>Projects</a></li>
+        <li><a href="#contact"><span class="nav-tag">07</span>Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn--nav">Let's talk</a>
+      <div class="mode-switch" id="modeSwitchMobile" role="group" aria-label="Switch portfolio focus (mobile)">
+        <button data-mode="dev" class="is-active" aria-pressed="true">DEV</button>
+        <button data-mode="editor" aria-pressed="false">EDIT</button>
+        <button data-mode="security" aria-pressed="false">SEC</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-grid">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> <span id="heroEyebrow">Available for new builds — 2026</span></p>
+      <h1 class="hero-title" id="heroTitle">
+        I build interfaces that <span class="hero-title__accent" id="typewriterText">hold up</span><span class="typewriter-cursor" aria-hidden="true">|</span> at every screen size.
+      </h1>
+      <p class="hero-sub" id="heroSub">
+        Full stack developer focused on semantic markup, deliberate layout systems, and
+        code that stays readable long after the deadline passes. Also editing video and
+        learning to break into systems, ethically — switch modes above to see each side.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn--primary">View the work</a>
+        <a href="#contact" class="btn btn--ghost">Get in touch</a>
+      </div>
+      <div class="hero-stats-new">
+        <div class="stat-badge">
+          <span class="stat-badge-dot" style="background: var(--accent-electric); color: var(--accent-electric);"></span>
+          <span class="stat-label">Internship:</span>
+          <span class="stat-val">DecodeLabs</span>
+        </div>
+        <div class="stat-badge">
+          <span class="stat-badge-dot" style="background: var(--accent-cyan); color: var(--accent-cyan);"></span>
+          <span class="stat-label">Role:</span>
+          <span class="stat-val" id="heroRole">Full Stack</span>
+        </div>
+        <div class="stat-badge">
+          <span class="stat-badge-dot" style="background: #10B981; color: #10B981;"></span>
+          <span class="stat-label">Location:</span>
+          <span class="stat-val">Islamabad, PK</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-panel" role="img" aria-label="Futuristic Developer IDE Editor Console mockup showing sample responsive code configurations">
+      <div class="editor-mockup">
+        <div class="editor-header">
+          <div class="editor-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="editor-tab">BB / index.js</div>
+        </div>
+        <div class="editor-body">
+          <pre class="code-editor"><code><span class="code-kw">const</span> <span class="code-fn">developer</span> = {
+  name: <span class="code-str">'Bushra Bilal'</span>,
+  role: <span class="code-str">'Full Stack Intern'</span>,
+  stack: [<span class="code-str">'JS'</span>, <span class="code-str">'Node'</span>, <span class="code-str">'CSS'</span>],
+  focus: <span class="code-str">'semantic'</span>,
+  responsive: <span class="code-val">true</span>
+};</code></pre>
+        </div>
+        <div class="editor-preview-card">
+          <div class="preview-header">Live Preview</div>
+          <div class="preview-bar"></div>
+          <div class="preview-chart">
+            <div class="preview-bar-chart" style="height: 40%"></div>
+            <div class="preview-bar-chart" style="height: 80%"></div>
+            <div class="preview-bar-chart" style="height: 60%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>About</h2>
+    </div>
+    <div class="about-grid">
+      <p class="about-lead">
+        I'm a Software Engineering undergraduate at CUST (2024–2028), currently gaining real-world experience as a Full Stack Development intern at DecodeLabs and mastering cybersecurity fundamentals at AstraQuantum Tech.
+      </p>
+      <div class="about-body">
+        <p>
+          My technical foundation centers on software engineering principles, robust web architecture, and clean user-interface design. At DecodeLabs, I build responsive, production-ready frontend solutions and web applications, prioritizing clean code structure, performance, and accessibility. Simultaneously, I am expanding my technical scope into cybersecurity and network defense at AstraQuantum Tech.
+        </p>
+        <p>
+          Complementing my engineering focus, I bring a creative perspective through video editing and visual storytelling. Whether designing scalable web applications, analyzing security concepts, or cutting motion promos, I bring the same focus on quality, discipline, and continuous learning to every build.
+        </p>
+        <a class="text-link" href="#contact">Read my full story →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY / EXPERIENCE -->
+  <section class="section" id="journey">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Journey</h2>
+    </div>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">2026 - Present</span>
+          <h3>Full Stack Intern</h3>
+          <span class="timeline-subtitle">DecodeLabs Internship Program</span>
+          <p>Developing fully responsive mobile-first frontend interfaces, writing semantic templates, implementing lightweight vanilla JS features, and executing layout design validations.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">2025 - Present</span>
+          <h3>Cybersecurity Learner</h3>
+          <span class="timeline-subtitle">AstraQuantum Tech</span>
+          <p>Studying cybersecurity fundamentals, network security defense, threat analysis, and web security protocols through hands-on learning and practical modules.</p>
+          <a href="https://www.linkedin.com/posts/bushra-bilal-846467354_astraquantumtech-cybersecurity-offerletter-activity-7489688708070293504-HEzw" target="_blank" rel="noopener" class="text-link" style="display: inline-block; margin-top: 0.5rem;">View on LinkedIn →</a>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">2025 - 2026</span>
+          <h3>Freelance Frontend Web Developer</h3>
+          <span class="timeline-subtitle">Self-Employed / Remote</span>
+          <p>Delivered custom portfolio websites, SaaS marketing landing pages, and responsive business frontends utilizing CSS Grid, Flexbox, and modern CSS fluid scale systems.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">2024 - Present (Expected 2028)</span>
+          <h3>Software Engineering Undergraduate</h3>
+          <span class="timeline-subtitle">CUST (Capital University of Science &amp; Technology, Islamabad)</span>
+          <p>Pursuing a software engineering degree focusing on core software design patterns, full development lifecycle methodologies, object-oriented programming, and engineering fundamentals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="section section--tinted" id="certifications">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Certifications</h2>
+    </div>
+
+    <div class="skills-grid">
+      <!-- 1. Cisco Networking Academy -->
+      <article class="skill-card cert-card">
+        <span class="skill-role">Cisco Networking Academy</span>
+        <h3>Networking Basics Certification</h3>
+        <p>Mastered foundational networking principles, routing fundamentals, and network architecture concepts.</p>
+        <a href="https://www.linkedin.com/posts/bushra-bilal-846467354_cisco-cisconetworkingacademy-networkingbasics-activity-7491809294963744768-aiHp" target="_blank" rel="noopener" class="text-link">View on LinkedIn →</a>
+      </article>
+
+      <!-- 2. Google Analytics -->
+      <article class="skill-card cert-card">
+        <span class="skill-role">Google</span>
+        <h3>Google Analytics Certification</h3>
+        <p>Certified in web traffic measurement, user behavior tracking, and digital performance reporting.</p>
+        <a href="https://www.linkedin.com/posts/bushra-bilal-846467354_googleanalytics-cybersecurity-softwareengineering-activity-7490786543482093570-38X0" target="_blank" rel="noopener" class="text-link">View on LinkedIn →</a>
+      </article>
+
+      <!-- 3. Deloitte Cybersecurity Job Simulation -->
+      <article class="skill-card cert-card">
+        <span class="skill-role">Deloitte · Forage</span>
+        <h3>Cybersecurity Job Simulation</h3>
+        <p>Completed practical cybersecurity virtual experience focusing on threat assessment and enterprise defense.</p>
+        <a href="https://www.linkedin.com/posts/bushra-bilal-846467354_cybersecurity-deloitte-forage-activity-7490390527301959680-fxs3" target="_blank" rel="noopener" class="text-link">View on LinkedIn →</a>
+      </article>
+
+      <!-- 4. HackerRank Skill Certificate #1 -->
+      <article class="skill-card cert-card">
+        <span class="skill-role">HackerRank</span>
+        <h3>Software Engineer Intern Certificate</h3>
+        <p>Validated foundational software development practices and real-world engineering standards.</p>
+        <a href="https://www.linkedin.com/posts/bushra-bilal-846467354_hackerrank-skill-certificate-activity-7491919694023790593-pRYN" target="_blank" rel="noopener" class="text-link">View on LinkedIn →</a>
+      </article>
+
+      <!-- 5. HackerRank Skill Certificate #2 -->
+      <article class="skill-card cert-card">
+        <span class="skill-role">HackerRank</span>
+        <h3>Problem Solving Certificate</h3>
+        <p>Demonstrated proficiency in breaking down complex logic and designing efficient algorithms.</p>
+        <a href="https://www.linkedin.com/posts/bushra-bilal-846467354_hackerrank-skill-certificate-activity-7491919808838406144-j7Q3" target="_blank" rel="noopener" class="text-link">View on LinkedIn →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CURRENTLY LEARNING / IN PROGRESS -->
+  <section class="section" id="learning">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>Currently Learning</h2>
+    </div>
+    <p class="about-lead" style="margin-bottom: 1.75rem; font-size: 1.05rem;">What I'm working through right now.</p>
+
+    <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+      <!-- 1. Cybersecurity Internship (AstraQuantum Tech) -->
+      <article class="skill-card cert-card is-placeholder" style="border-style: dashed; opacity: 0.9;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.4rem;">
+          <span class="skill-role">AstraQuantum Tech</span>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <span class="skill-role" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border-color: rgba(245, 158, 11, 0.3); margin-bottom: 0;">Offer Letter Received</span>
+            <span class="skill-role" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); border-color: rgba(56, 189, 248, 0.3); margin-bottom: 0;">Training in Progress</span>
+          </div>
+        </div>
+        <h3>Cybersecurity Internship</h3>
+        <p>Actively going through hands-on cybersecurity training as part of the AstraQuantum Tech internship — applying what I'm learning to real tasks.</p>
+        <a href="https://www.linkedin.com/posts/bushra-bilal-846467354_astraquantumtech-cybersecurity-offerletter-activity-7489688708070293504-HEzw" target="_blank" rel="noopener" class="text-link">View on LinkedIn →</a>
+      </article>
+
+      <!-- 2. Full Stack Developer Internship (DecodeLabs) -->
+      <!-- TODO: add DecodeLabs offer letter LinkedIn link -->
+      <article class="skill-card cert-card is-placeholder" style="border-style: dashed; opacity: 0.9;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.4rem;">
+          <span class="skill-role">DecodeLabs</span>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <span class="skill-role" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border-color: rgba(245, 158, 11, 0.3); margin-bottom: 0;">Offer Letter Received</span>
+            <span class="skill-role" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); border-color: rgba(56, 189, 248, 0.3); margin-bottom: 0;">Training in Progress</span>
+          </div>
+        </div>
+        <h3>Full Stack Developer Internship</h3>
+        <p>Actively going through hands-on full stack development training as part of the DecodeLabs internship — applying what I'm learning to real assignments.</p>
+        <a href="#" class="text-link">View on LinkedIn →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section section--tinted" id="skills">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2>Skills</h2>
+    </div>
+
+    <!-- Skills Category Tab Bar -->
+    <div class="skills-tabs">
+      <button class="skills-tab-btn is-active" data-target="frontend">Frontend</button>
+      <button class="skills-tab-btn" data-target="backend">Backend &amp; Logic</button>
+      <button class="skills-tab-btn" data-target="tools">Tools &amp; Methods</button>
+      <button class="skills-tab-btn" data-target="creative">Video Editing</button>
+      <button class="skills-tab-btn" data-target="security-skills">Security (Learning)</button>
+    </div>
+
+    <!-- Frontend Skills Group -->
+    <div class="skills-group skills-grid is-active" id="frontend">
+      <article class="skill-card">
+        <h3>HTML5</h3>
+        <p class="skill-role">The infrastructure</p>
+        <p>Semantic landmarks — header, nav, main, article, footer — so the document makes sense to screen readers and search engines alike, not just to the eye.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>90%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="HTML5 proficiency 90%">
+            <div class="skill-progress-fill" data-progress="90%"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <h3>CSS3</h3>
+        <p class="skill-role">The skin</p>
+        <p>Grid for page-level structure, Flexbox for components, <code>clamp()</code> for type that scales fluidly instead of jumping at breakpoints.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>88%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="CSS3 proficiency 88%">
+            <div class="skill-progress-fill" data-progress="88%"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <h3>Responsive Design</h3>
+        <p class="skill-role">The discipline</p>
+        <p>Mobile-first builds tested at real breakpoints — 768px for tablet, 1024px for desktop — so nothing is designed for one screen and hoped for on the rest.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>85%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Responsive Design proficiency 85%">
+            <div class="skill-progress-fill" data-progress="85%"></div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Backend & Logic Skills Group -->
+    <div class="skills-group skills-grid" id="backend">
+      <article class="skill-card">
+        <h3>JavaScript</h3>
+        <p class="skill-role">The logic</p>
+        <p>Lightweight state and interactivity — menus, toggles, form handling — written plainly, without reaching for a framework to solve a five-line problem.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>80%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript proficiency 80%">
+            <div class="skill-progress-fill" data-progress="80%"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <h3>Node.js &amp; APIs</h3>
+        <p class="skill-role">The engine</p>
+        <p>Building high-performance REST APIs, route handling, middleware integration, and data parsing services with Express and vanilla Node runtimes.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>82%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="Node.js and APIs proficiency 82%">
+            <div class="skill-progress-fill" data-progress="82%"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <h3>Database Systems</h3>
+        <p class="skill-role">The memory</p>
+        <p>Relational SQL and NoSQL MongoDB modeling, writing queries, optimizing index lookups, and structuring transactional tables for persistent application states.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>75%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Database Systems proficiency 75%">
+            <div class="skill-progress-fill" data-progress="75%"></div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Tools & Core Skills Group -->
+    <div class="skills-group skills-grid" id="tools">
+      <article class="skill-card">
+        <h3>Accessibility</h3>
+        <p class="skill-role">The standard</p>
+        <p>Visible focus states, correct contrast, alt text that describes rather than decorates. Built in from the first line, not patched in at the end.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>75%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Accessibility proficiency 75%">
+            <div class="skill-progress-fill" data-progress="75%"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <h3>Git &amp; GitHub</h3>
+        <p class="skill-role">The record</p>
+        <p>Clear commit history and readable READMEs — so a project is as easy to pick back up in a year as it was to ship today.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>80%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Git and GitHub proficiency 80%">
+            <div class="skill-progress-fill" data-progress="80%"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <h3>UI/UX &amp; Prototyping</h3>
+        <p class="skill-role">The design</p>
+        <p>Wireframing, typography hierarchies, interaction planning, and pixel-perfect design-to-code implementations with Figma guidelines.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>80%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="UI/UX and Prototyping proficiency 80%">
+            <div class="skill-progress-fill" data-progress="80%"></div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Video Editing Skills Group -->
+    <div class="skills-group skills-grid" id="creative">
+      <article class="skill-card">
+        <h3>Premiere Pro</h3>
+        <p class="skill-role">The cut</p>
+        <p>Multi-cam editing, pacing, and audio sync for promo reels and short-form content.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>75%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Premiere Pro proficiency 75%">
+            <div class="skill-progress-fill" data-progress="75%"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <h3>After Effects</h3>
+        <p class="skill-role">The polish</p>
+        <p>Motion graphics, titles, and light compositing to make explainer edits feel intentional.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>65%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="After Effects proficiency 65%">
+            <div class="skill-progress-fill" data-progress="65%"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <h3>DaVinci Resolve</h3>
+        <p class="skill-role">The color</p>
+        <p>Color grading and correction to give raw footage a consistent, finished look.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>60%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="DaVinci Resolve proficiency 60%">
+            <div class="skill-progress-fill" data-progress="60%"></div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Security Skills Group -->
+    <div class="skills-group skills-grid" id="security-skills">
+      <article class="skill-card">
+        <h3>Linux &amp; Networking</h3>
+        <p class="skill-role">The foundation</p>
+        <p>Command-line fluency and core networking concepts — the base layer every security skill sits on.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>50%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Linux and Networking proficiency 50%">
+            <div class="skill-progress-fill" data-progress="50%"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <h3>Web Security Fundamentals</h3>
+        <p class="skill-role">The mindset</p>
+        <p>Working through the OWASP Top 10 to understand common vulnerabilities from the attacker's side.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>40%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" aria-label="Web Security Fundamentals proficiency 40%">
+            <div class="skill-progress-fill" data-progress="40%"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <h3>TryHackMe Practice</h3>
+        <p class="skill-role">The reps</p>
+        <p>Hands-on rooms covering enumeration, privilege escalation basics, and reporting — steadily building toward a first CTF writeup.</p>
+        <div class="skill-progress-wrap">
+          <div class="skill-progress-info"><span>Proficiency</span><span>35%</span></div>
+          <div class="skill-progress-track" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="TryHackMe practice proficiency 35%">
+            <div class="skill-progress-fill" data-progress="35%"></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <h2>Projects</h2>
+    </div>
+    <div class="project-filters" role="group" aria-label="Filter projects by category">
+      <button class="project-filter-btn is-active" data-filter="all">All</button>
+      <button class="project-filter-btn" data-filter="dev">Web Dev</button>
+      <button class="project-filter-btn" data-filter="ai">Agentic AI</button>
+      <button class="project-filter-btn" data-filter="editor">Video</button>
+      <button class="project-filter-btn" data-filter="security">Security</button>
+    </div>
+    <div class="projects-grid" id="projectGrid">
+
+      <article class="project-card" data-cat="dev">
+        <div class="project-thumb" aria-hidden="true">
+          <svg class="project-svg" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+            <rect width="400" height="150" fill="url(#medai-grad)"/>
+            <path d="M 50 75 L 120 75 L 140 45 L 165 105 L 190 60 L 210 85 L 230 75 L 350 75" stroke="var(--accent-cyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="165" cy="105" r="4" fill="#FFFFFF" stroke="var(--accent-cyan)" stroke-width="2"/>
+            <circle cx="190" cy="60" r="4" fill="#FFFFFF" stroke="var(--accent-cyan)" stroke-width="2"/>
+            <defs>
+              <linearGradient id="medai-grad" x1="0" y1="0" x2="400" y2="150" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#090D16"/>
+                <stop offset="1" stop-color="#122536"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="thumb-tag">01</span>
+        </div>
+        <div class="project-body">
+          <h3>Hackathon-MedAI</h3>
+          <p>An AI-powered healthcare solution developed during a hackathon to provide intelligent medical assistance and improve user accessibility.</p>
+          <ul class="project-tags">
+            <li>HTML</li>
+          </ul>
+          <a href="https://github.com/bushrabilal-official/Hackathon-MedAI" target="_blank" rel="noopener" class="text-link">View on GitHub →</a>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="dev">
+        <div class="project-thumb" aria-hidden="true">
+          <svg class="project-svg" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+            <rect width="400" height="150" fill="url(#chat-grad)"/>
+            <rect x="90" y="35" width="160" height="60" rx="12" fill="rgba(255,255,255,0.06)" stroke="var(--accent-cyan)" stroke-width="1.5" opacity="0.9"/>
+            <rect x="110" y="50" width="70" height="6" rx="3" fill="var(--accent-cyan)" opacity="0.8"/>
+            <rect x="110" y="64" width="110" height="6" rx="3" fill="rgba(255,255,255,0.3)"/>
+            <rect x="160" y="75" width="150" height="55" rx="12" fill="rgba(255,255,255,0.08)" stroke="var(--accent-electric)" stroke-width="1.5"/>
+            <rect x="180" y="90" width="80" height="6" rx="3" fill="var(--accent-electric)"/>
+            <rect x="180" y="104" width="100" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
+            <defs>
+              <linearGradient id="chat-grad" x1="0" y1="0" x2="400" y2="150" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#090D16"/>
+                <stop offset="1" stop-color="#1B1535"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="thumb-tag">02</span>
+        </div>
+        <div class="project-body">
+          <h3>Chat App</h3>
+          <p>A real-time chat application that enables users to send instant messages through a simple, secure, and user-friendly interface.</p>
+          <ul class="project-tags">
+            <li>JavaScript</li><li>Node.js</li><li>Socket.io</li>
+          </ul>
+          <a href="https://github.com/bushrabilal-official/Chat-App" target="_blank" rel="noopener" class="text-link">View on GitHub →</a>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="dev">
+        <div class="project-thumb" aria-hidden="true">
+          <svg class="project-svg" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+            <rect width="400" height="150" fill="url(#flappy-grad)"/>
+            <rect x="100" y="20" width="35" height="50" rx="4" fill="rgba(255,255,255,0.05)" stroke="var(--accent-cyan)" stroke-width="1.5"/>
+            <rect x="100" y="100" width="35" height="40" rx="4" fill="rgba(255,255,255,0.05)" stroke="var(--accent-cyan)" stroke-width="1.5"/>
+            <rect x="250" y="20" width="35" height="30" rx="4" fill="rgba(255,255,255,0.05)" stroke="var(--accent-cyan)" stroke-width="1.5"/>
+            <rect x="250" y="85" width="35" height="55" rx="4" fill="rgba(255,255,255,0.05)" stroke="var(--accent-cyan)" stroke-width="1.5"/>
+            <circle cx="180" cy="65" r="14" fill="var(--accent-electric)" opacity="0.8"/>
+            <circle cx="186" cy="62" r="3" fill="#FFFFFF"/>
+            <polygon points="194,65 204,68 194,72" fill="var(--accent-cyan)"/>
+            <defs>
+              <linearGradient id="flappy-grad" x1="0" y1="0" x2="400" y2="150" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#080C14"/>
+                <stop offset="1" stop-color="#14261C"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="thumb-tag">03</span>
+        </div>
+        <div class="project-body">
+          <h3>Flappy Bird Game</h3>
+          <p>A fun and interactive Flappy Bird-inspired game featuring smooth gameplay, responsive controls, and score tracking.</p>
+          <ul class="project-tags">
+            <li>JavaScript</li>
+          </ul>
+          <a href="https://github.com/bushrabilal-official/Flappy-bird-Game" target="_blank" rel="noopener" class="text-link">View on GitHub →</a>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="dev">
+        <div class="project-thumb" aria-hidden="true">
+          <svg class="project-svg" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+            <rect width="400" height="150" fill="url(#henna-grad)"/>
+            <circle cx="200" cy="75" r="35" stroke="var(--accent-cyan)" stroke-width="1.5" stroke-dasharray="4 4" fill="none" opacity="0.6"/>
+            <circle cx="200" cy="75" r="20" stroke="var(--accent-electric)" stroke-width="1.5" fill="none"/>
+            <circle cx="200" cy="75" r="6" fill="var(--accent-electric)"/>
+            <path d="M200 25 L200 40 M200 110 L200 125 M150 75 L165 75 M235 75 L250 75" stroke="var(--accent-cyan)" stroke-width="2"/>
+            <defs>
+              <linearGradient id="henna-grad" x1="0" y1="0" x2="400" y2="150" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#120914"/>
+                <stop offset="1" stop-color="#2A162B"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="thumb-tag">04</span>
+        </div>
+        <div class="project-body">
+          <h3>Henna Website</h3>
+          <p>A modern and responsive henna website showcasing beautiful henna designs, services, and easy appointment booking.</p>
+          <ul class="project-tags">
+            <li>TypeScript</li>
+          </ul>
+          <a href="https://github.com/bushrabilal-official/Henna-Website" target="_blank" rel="noopener" class="text-link">View on GitHub →</a>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="dev">
+        <div class="project-thumb" aria-hidden="true">
+          <svg class="project-svg" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+            <rect width="400" height="150" fill="url(#movie-grad)"/>
+            <rect x="70" y="30" width="260" height="90" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <polygon points="175,55 210,75 175,95" fill="var(--accent-electric)"/>
+            <circle cx="120" cy="75" r="16" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"/>
+            <circle cx="280" cy="75" r="16" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"/>
+            <defs>
+              <linearGradient id="movie-grad" x1="0" y1="0" x2="400" y2="150" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0A0D18"/>
+                <stop offset="1" stop-color="#241835"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="thumb-tag">05</span>
+        </div>
+        <div class="project-body">
+          <h3>Movie Suggestion & Recommendation Portal</h3>
+          <p>A web-based movie recommendation portal that helps users discover films based on genres, ratings, and personal preferences.</p>
+          <ul class="project-tags">
+            <li>PHP</li>
+          </ul>
+          <a href="https://github.com/bushrabilal-official/Movie-Suggestion-and-Recommendation-Portal-System" target="_blank" rel="noopener" class="text-link">View on GitHub →</a>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="ai">
+        <div class="project-thumb" aria-hidden="true">
+          <svg class="project-svg" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+            <rect width="400" height="150" fill="url(#review-agent-grad)"/>
+            <circle cx="200" cy="75" r="26" fill="none" stroke="var(--accent-electric)" stroke-width="2" opacity="0.8"/>
+            <circle cx="200" cy="75" r="4" fill="var(--accent-electric)"/>
+            <circle cx="120" cy="45" r="4" fill="var(--accent-cyan)"/>
+            <circle cx="280" cy="45" r="4" fill="var(--accent-cyan)"/>
+            <circle cx="120" cy="105" r="4" fill="var(--accent-cyan)"/>
+            <circle cx="280" cy="105" r="4" fill="var(--accent-cyan)"/>
+            <path d="M120 45 L176 63 M280 45 L224 63 M120 105 L176 87 M280 105 L224 87" stroke="var(--accent-cyan)" stroke-width="1.5" opacity="0.5"/>
+            <defs>
+              <linearGradient id="review-agent-grad" x1="0" y1="0" x2="400" y2="150" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#090D16"/>
+                <stop offset="1" stop-color="#151A30"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="thumb-tag tag-status">Wrapping up</span>
+        </div>
+        <div class="project-body">
+          <h3>Negative Review Detection Agent</h3>
+          <p>An AI agent that detects and flags negative reviews automatically, helping businesses catch and respond to negative feedback faster.</p>
+          <ul class="project-tags">
+            <li>Python</li><li>AI/Agent</li>
+          </ul>
+          <a href="https://github.com/usaaman/negitive-review-detection--agent" target="_blank" rel="noopener" class="text-link">View on GitHub →</a>
+        </div>
+      </article>
+
+      <article class="project-card is-placeholder" data-cat="editor">
+        <div class="project-thumb" aria-hidden="true">
+          <svg class="project-svg" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+            <rect width="400" height="150" fill="url(#reel-grad)"/>
+            <circle cx="200" cy="75" r="30" fill="rgba(255,255,255,0.06)" stroke="var(--accent-electric)" stroke-width="1.5"/>
+            <path d="M190 60 L215 75 L190 90 Z" fill="var(--accent-electric)"/>
+            <defs>
+              <linearGradient id="reel-grad" x1="0" y1="0" x2="400" y2="150" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0D0710"/>
+                <stop offset="1" stop-color="#2A0F1F"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="thumb-tag tag-status">Coming soon</span>
+        </div>
+        <div class="project-body">
+          <h3>Showreel — In Progress</h3>
+          <p>A short edit combining brand promos and motion-graphics work is in the cut. Switch to <strong>EDIT</strong> mode above and check back, or add your first published edit here now.</p>
+          <ul class="project-tags">
+            <li>Premiere Pro</li><li>After Effects</li>
+          </ul>
+          <a href="#skills" class="text-link">See editing skills →</a>
+        </div>
+      </article>
+
+      <article class="project-card is-placeholder" data-cat="security">
+        <div class="project-thumb" aria-hidden="true">
+          <svg class="project-svg" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+            <rect width="400" height="150" fill="url(#sec-grad)"/>
+            <path d="M200 30 L235 45 V80 C235 105 200 122 200 122 C200 122 165 105 165 80 V45 Z" fill="none" stroke="var(--accent-electric)" stroke-width="2"/>
+            <circle cx="200" cy="72" r="6" fill="var(--accent-electric)" opacity="0.8"/>
+            <defs>
+              <linearGradient id="sec-grad" x1="0" y1="0" x2="400" y2="150" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0D0A05"/>
+                <stop offset="1" stop-color="#2A1B05"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="thumb-tag tag-status">Learning</span>
+        </div>
+        <div class="project-body">
+          <h3>First CTF Writeup — Coming Soon</h3>
+          <p>Actively working through TryHackMe rooms and OWASP fundamentals. My first documented walkthrough will replace this card once it's published.</p>
+          <ul class="project-tags">
+            <li>Linux</li><li>Networking</li><li>Web Security</li>
+          </ul>
+          <a href="#skills" class="text-link">See security progress →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--tinted" id="contact">
+    <div class="section-head">
+      <span class="section-num">07</span>
+      <h2>Contact</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-copy">
+        <p class="about-lead">Have a build in mind? I'd like to hear about it.</p>
+        <p>Whether it's a full product or a single stubborn layout bug — send a message and I'll reply within a couple of days.</p>
+        <ul class="contact-list">
+          <li><span>Email</span><a href="mailto:bushrabilalofficial21@gmail.com">bushrabilalofficial21@gmail.com</a></li>
+          <li><span>Phone</span><a href="tel:03199428321">0319 9428321</a></li>
+          <li><span>Location</span><span>Islamabad, Pakistan</span></li>
+          <li><span>GitHub</span><a href="https://github.com/bushrabilal-official" target="_blank" rel="noopener">github.com/bushrabilal-official</a></li>
+          <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/bushra-bilal-846467354/" target="_blank" rel="noopener">linkedin.com/in/bushra-bilal</a></li>
+        </ul>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--block">Send message</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>&copy; <span id="year"></span> Bushra Bilal. Built by hand, breakpoint by breakpoint — developer, editor, and security learner.</p>
+    <button class="to-top" id="toTop" aria-label="Back to top">↑ Top</button>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
